@@ -9,30 +9,32 @@ export function Navbar() {
       <div>
         <p className="text-2xl font-bold">Instant/Film</p>
       </div>
-      <div className="lg:flex flex-1 items-center justify-between hidden gap-4">
-        <div className="relative">
-          {/* Work on this */}
-          <p className="absolute top-2 left-3 text-zinc-600">
-            <FiSearch size="20" />
-          </p>
-          <Input id="nav__searchbar" placeholder="Search" className="w-96 bg-zinc-800 pl-10" />
-        </div>
-        <ul className="flex gap-4">
-          <li><FiHome size="24" /></li>
-          <li><FiSend size="24" /></li>
-          <li><FiPlusSquare size="24" /></li>
-          <li><FiCompass size="24" /></li>
-          <li><FiHeart size="24" /></li>
-        </ul>
-      </div>
-      <div>
+      <div className="w-full flex gap-4 items-center">
         <SignedIn>
+          <div className="lg:flex flex-1 items-center justify-between hidden gap-4">
+            <div className="relative">
+              {/* Work on this */}
+              <p className="absolute top-2 left-3 text-zinc-600">
+                <FiSearch size="20" />
+              </p>
+              <Input id="nav__searchbar" placeholder="Search" className="w-96 bg-zinc-800 pl-10" />
+            </div>
+            <ul className="flex gap-4">
+              <li><FiHome size="24" /></li>
+              <li><FiSend size="24" /></li>
+              <li><FiPlusSquare size="24" /></li>
+              <li><FiCompass size="24" /></li>
+              <li><FiHeart size="24" /></li>
+            </ul>
+          </div>
           <UserButton />
         </SignedIn>
         <SignedOut>
-          <Button className="bg-green-700 text-white font-extrabold text-lg" asChild>
-            <SignInButton />
-          </Button>
+          <div className="w-full flex justify-end items-center">
+            <Button className="bg-green-700 text-white font-extrabold text-lg" asChild>
+              <SignInButton />
+            </Button>
+          </div>
         </SignedOut>
       </div>
 
