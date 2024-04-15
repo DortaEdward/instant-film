@@ -2,6 +2,8 @@ import "@/styles/globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils"
+import { ThemeProvider } from "./_components/theme-provider";
+import { Navbar } from "./_components/navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,9 +25,14 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased flex flex-col",
           inter.variable
-        )}>{children}</body>
+        )}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <Navbar />
+            {children}
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
